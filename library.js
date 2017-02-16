@@ -30,18 +30,18 @@ Library.prototype.searchByTitle = function(title) {
 //constructing an instance of library
 var obj = new Library([
 	{
-		isbn: 11,
-		author: "name",
-		title: "nameOfBook1"
+		isbn: 9780596517748,
+		author: "Crockford, Douglas",
+		title: "JavaScript: The Good Parts"
 	}, {
-		isbn: 23,
-		author: "name2",
-		title: "nameOfBook2"
+		isbn: 9781617292859,
+		author: "Resig, John",
+		title: "Secrets of the JavaScript Ninja"
 	}]);
 //invoking obj's Library method
-console.log(obj.searchByIsbn(11))
+console.log(obj.searchByIsbn(9780596517748))
 
-console.log(obj.searchByTitle("Book2"))
+console.log(obj.searchByTitle("Secrets of the JavaScript Ninja"))
 
 //problems: 
 //1. exact title matches
