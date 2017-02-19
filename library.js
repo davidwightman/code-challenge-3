@@ -6,6 +6,10 @@ function Library(books) {
 	for(var i=0; i < books.length; i++){
 		this._byIsbn[books[i].isbn] = books[i]
 	}
+	this._lowerCasedTitle = [];
+	for (var i = 0; i < books.length; i++) {
+		this._lowerCasedTitle.push(books[i].title.toLowerCase());
+	}
 }
 //search by isbn method
 Library.prototype.searchByIsbn =function(isbn) {
@@ -17,7 +21,7 @@ Library.prototype.searchByTitle = function(title) {
 	title = title.toLowerCase()
 	for(var i=0; i < this._books.length; i++){
 		//search for portion of title
-		if (this._books[i].title.toLowerCase().indexOf(title) !== -1){
+		if (this._lowerCasedTitle[i].indexOf(title) !== -1){
 			return this._books[i]
 		}
 	}
@@ -36,8 +40,8 @@ var obj = new Library([
 	}]);
 //invoking obj's Library method
 console.log(obj.searchByIsbn(9780596517748))
-
-console.log(obj.searchByTitle("Secrets of the JavaScript Ninja"))
+console.log(obj.searchByTitle("secrets"))
+//////////////////////////////////
 
 //problems: 
 //1. exact title matches
