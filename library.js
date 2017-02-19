@@ -4,11 +4,9 @@ function Library(books) {
 	this._books = books
 	//create lookup object by isbn
 	this._byIsbn = {};
+	this._lowerCasedTitle = [];
 	for(i = 0; i < books.length; i++){
 		this._byIsbn[books[i].isbn] = books[i]
-	}
-	this._lowerCasedTitle = [];
-	for (i = 0; i < books.length; i++) {
 		this._lowerCasedTitle.push(books[i].title.toLowerCase());
 	}
 }
