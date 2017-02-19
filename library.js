@@ -1,13 +1,14 @@
 //constructor
 function Library(books) {
-	this._books = books 
+	var i
+	this._books = books
 	//create lookup object by isbn
 	this._byIsbn = {};
-	for(var i=0; i < books.length; i++){
+	for(i = 0; i < books.length; i++){
 		this._byIsbn[books[i].isbn] = books[i]
 	}
 	this._lowerCasedTitle = [];
-	for (var i = 0; i < books.length; i++) {
+	for (i = 0; i < books.length; i++) {
 		this._lowerCasedTitle.push(books[i].title.toLowerCase());
 	}
 }
@@ -19,13 +20,14 @@ Library.prototype.searchByIsbn =function(isbn) {
 Library.prototype.searchByTitle = function(title) {
 	//to lowercase to normalize the query
 	title = title.toLowerCase()
+	var matches = []
 	for(var i=0; i < this._books.length; i++){
 		//search for portion of title
 		if (this._lowerCasedTitle[i].indexOf(title) !== -1){
-			return this._books[i]
+			matches.push(this._books[i])
 		}
 	}
-	return null
+	return matches
 }
 //constructing an instance of library
 var obj = new Library([
@@ -41,6 +43,7 @@ var obj = new Library([
 //invoking obj's Library method
 console.log(obj.searchByIsbn(9780596517748))
 console.log(obj.searchByTitle("secrets"))
+console.log(obj.searchByTitle("the"))
 //////////////////////////////////
 
 //problems: 
