@@ -42,8 +42,3 @@ var obj = new Library([
 console.log(obj.searchByIsbn(9780596517748))
 console.log(obj.searchByTitle("secrets"))
 console.log(obj.searchByTitle("the"))
-//////////////////////////////////
-
-//problems: 
-//1. exact title matches
-//2. finds the first title match. does not find all title matches
